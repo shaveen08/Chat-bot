@@ -671,7 +671,7 @@ function exportChat(){
 function logOut(){
   if(confirm("Are you sure you want to logout?")){
     localStorage.removeItem("userData");
-    window.location.href = "/index.html";
+    window.location.href = "../../index.html";
   }
 }
 

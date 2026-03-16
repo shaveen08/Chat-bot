@@ -77,6 +77,6 @@ function handleRegister(event){
         passwordInput.value = "";
 
         alert("Registeration Successful")
-        window.location.replace("/index.html");
+        window.location.replace("../../index.html");
     }
 }
