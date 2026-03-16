@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Bot</title>
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <header></header>
+    <main class="main-container">
+      <!-- Inbox User List Container -->
+      <div class="inbox-container">
+        <!-- Inbox User List Header -->
+        <div class="inbox-header">
+          <h3>Chats</h3>
+          <div class="search-input hidden">
+            <input
+              type="search"
+              id="user-search"
+              onkeyup="searchUser()"
+              placeholder="Search something"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <!-- Inbox Users List -->
+        <div class="inbox-list">
+          <div class="inbox active">
+            <div class="user-avatar">🤖</div>
+            <div class="user-info">
+              <p id="user-name">My AI</p>
+              <p id="recent-chat">Your chat will display here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Chat Box Container -->
+      <div class="chat-box-container">
+        <!-- Chat Navigation Bar -->
+        <nav class="chat-navbar">
+          <div class="user-profile">
+            <div id="nav-user-avatar"></div>
+            <div class="user-info">
+              <p id="nav-user-name"></p>
+            </div>
+          </div>
+          <div class="more-element">
+            <img 
+              src="../../assets/icon/search-icon.png" 
+              alt="search-chat-icon" 
+              style="min-height: 20px;"
+              onclick="openSearch()"
+            />
+            <img
+              src="../../assets/icon/more.png"
+              alt="more-feature-icon"
+              onclick="openMore()"
+            />
+          </div>
+        </nav>
+        <!-- Chat Displaying Area -->
+        <div class="chat-area"></div>
+        <!-- User Inputing Area -->
+        <div class="user-input">
+          <label for="upload-file" id="drop-area">
+            <div id="upload-icon">
+              <img
+                src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMzkiIGhlaWdodD0iMjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTMyLjM3NSAxMi4xODhDMzEuNSA1LjY4OCAyNiAuODc0IDE5LjM3NS44NzQgMTMuNjg3Ljg3NSA4Ljc1IDQuNDM4IDYuOTM3IDkuODEzIDIuODc1IDEwLjY4NyAwIDE0LjE4NiAwIDE4LjM3NGMwIDQuNTYzIDMuNTYzIDguMzc1IDguMTI1IDguNzVoMjMuODEzYzMuODEyLS4zNzUgNi44MTItMy42MjUgNi44MTItNy41IDAtMy42ODgtMi43NS02Ljg3NS02LjM3NS03LjQzOHptLTYuMzEzIDMuNWEuNTY3LjU2NyAwIDAxLS40MzcuMTg3LjU2Ny41NjcgMCAwMS0uNDM4LS4xODhMMjAgMTAuNXYxMi4yNWMwIC4zNzUtLjI1LjYyNS0uNjI1LjYyNXMtLjYyNS0uMjUtLjYyNS0uNjI1VjEwLjVsLTUuMTg4IDUuMTg4YS42MDQuNjA0IDAgMDEtLjg3NCAwIC42MDQuNjA0IDAgMDEwLS44NzZsNi4yNS02LjI1Yy4wNjItLjA2Mi4xMjUtLjEyNC4xODctLjEyNC4xMjUtLjA2My4zMTMtLjA2My41IDAgLjA2My4wNjIuMTI1LjA2Mi4xODguMTI0bDYuMjUgNi4yNWMuMjUuMjUuMjUuNjI2IDAgLjg3NnoiLz48L3N2Zz4="
+                alt=""
+              />
+            </div>
+            <input
+              type="file"
+              id="upload-file"
+              accept="image/*,audio/*,video/*,application/pdf"
+            />
+          </label>
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Type something.."
+            autocomplete="off"
+          />
+          <button type="button" onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </main>
+    <!-- Dialog Box Pop Modal -->
+    <div class="open-more-modal hidden" onmouseleave="closeMoreModal()">
+      <dialog id="more-modal">
+        <div id="profile" class="modal-child" onclick="viewProfile()">
+          <p>Profile</p>
+        </div>
+        <div id="export" class="modal-child" onclick="exportChat()">
+          <p>Export</p>
+        </div>
+        <div id="clear-chat" class="modal-child" onclick="clearChat()">
+          <p>Clear Chat</p>
+        </div>
+        <div id="logout" class="modal-child" onclick="logOut()">
+          <p>Log out</p>
+        </div>
+      </dialog>
+    </div>
+    <!-- Search Box Pop Modal -->
+    <div class="search-modal hidden" onmouseleave="closeSearchModal()">
+      <input
+        type="search"
+        id="chat-search"
+        onkeyup="searchChat()"
+        placeholder="Search something"
+        autocomplete="off"
+      />
+    </div>
+    <!-- Profile -->
+    <div class="profile-modal-overlay hidden">
+      <div class="modal-box">
+        <!-- User Profile -->
+        <div class="user-profile">
+          <div class="close-profile" onclick="closeProfileModal()">
+            <img src="../../assets/icon/close.png" alt="">
+          </div>
+          <div class="user-avatar">
+            <span id="user-avatar-letter">B</span>
+          </div>
+        </div>
+        <!-- User Profile Info -->
+        <div class="user-profile-info">
+          <span id="user-profile-name">Bobby</span>
+          <p id="user-profile-about">Mind is matter.</p>
+        </div>
+        <hr>
+        <!-- About User -->
+        <div class="user-profile-about">
+          <span id="user-profile-about-title">About</span>
+          <p id="user-profile-about-description">Hi! I'm Bobby a product designer based in Tokyo, Japan. I love crafting clean, user-first experiences and exploring the intersection of design and code. Always up for a good design chat ✦</p>
+        </div>
+        <hr>
+        <!-- Profile CTA Buttons -->
+        <div class="user-profile-cta-buttons">
+          <button onclick="logOut()">Log out</button>
+        </div>
+      </div>
+    </div>
+    <script src="../javascript/app.js"></script>
+  </body>
+</html>

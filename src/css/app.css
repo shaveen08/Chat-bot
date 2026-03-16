@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "Inter", sans-serif;
+}
+/* ================ User inbox ======================== */
+.main-container{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100%;
+    z-index: 0;
+}
+/* ================== User Profile Chat ===================== */
+.chat-navbar{
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    /* box-shadow: 0px 0px 24px #00000017; */
+    min-height: 54px;
+}
+.chat-navbar #nav-user-avatar img{
+    height: 42px;
+    width: 42px;
+    border-radius: 100%;
+}
+.user-profile #nav-user-avatar span{
+    padding: 12px 14px;
+    border-radius: 100%;
+    color: #507d95;
+    background: #c5e0ee;
+}
+.user-profile{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.more-element{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+}
+.more-element img{
+    height: 24px;
+    width: 24px;
+}
+/* ========== Inbox Container ======================== */
+.inbox-container{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    background: #fff;
+}
+.inbox-header{
+    padding: 16px 16px;
+}
+.inbox-list{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color:  #c4c4c4 #f6f6f6;
+}
+.inbox{
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    /* margin: 12px 0; */
+    border-bottom: 1px solid #efefef;
+    padding: 12px;
+    cursor: pointer;
+}
+.user-info #user-name{
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+.user-info #recent-chat{
+    font-size: 14px;
+    color: #747474;
+}
+.active{
+    background: #efefef;
+}
+/* ========== Chat Box Container ===================== */
+.chat-box-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.chat-area{
+    height: 100%;
+    width: 100%;
+    background: url("https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg");
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+.chat-area::-webkit-scrollbar{
+    display: none;
+}
+.chat-navbar{
+    height: 56px;
+    width: 100%;
+    padding: 12px 16px;
+}
+/* ============= User Replay ================================== */
+.text-box{
+    height: 48px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 12px;
+    align-items: flex-end;
+}
+.user-avatar{
+    height: 42px;
+    width: 42px;
+    background: #c5e0ee;
+    color: #507d95;
+    border: 2px solid #b5d0de;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 42px; 
+    font-weight: 600;
+    object-fit: cover;
+}
+.text-box #text-message{
+    padding: 12px 16px;
+    border-radius: 24px;
+    color: #fff;
+    /* background:  linear-gradient(180deg, #4b42b7, #9c42b7); */
+    background: #4b42b7;
+}
+#user-messaged-date-time{
+    font-size: 14px;
+}
+/* =================== Bot ====================================== */
+.bot{
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.bot #text-message{
+    padding: 12px 16px;
+    border-radius: 24px;
+    color: #fff;
+    /* background:  linear-gradient(90deg, #4b42b7, #9c42b7); */
+    background: #9c42b7;
+}
+
+/* ============= User Input ================================ */
+.user-input{
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    /* box-shadow: 0 0 16px #00000017; */
+    background: #fff;
+}
+.user-input input{
+    height: 48px;
+    width: 100%;
+    padding: 0 12px;
+    border: 1px solid #dfdfdf;
+    border-radius: 24px;
+    outline: none;
+}
+#upload-file{
+    display: none;
+}
+.user-input #drop-area{
+    min-width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #dfdfdf;
+    padding-top: 12px;
+}
+.user-input #drop-area img{
+    width: 20px;
+    height: auto;
+    opacity: 0.3;
+    text-align: center;
+    margin-bottom: 8px;
+}
+.user-input button{
+    height: 48px;
+    width: 150px;
+    border: 1px solid #dfdfdf;
+    border-radius: 24px;
+    outline: none;
+    cursor: pointer;
+    background: #4b42b7;
+    color: #fff;
+    font-weight: 500;
+}
+.search-input input{
+    height: 40px;
+    width: 100%;
+    padding: 0 12px;
+    border: 1px solid #dfdfdf;
+    border-radius: 24px;
+    outline: none;
+    margin-top: 8px;
+}
+
+/* Open More Modal */
+.open-more-modal{
+    position: fixed;
+    top: 40px;
+    right: 210px;
+    z-index: 1;
+}
+.open-more-modal dialog{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    height: 200px;
+    width: 180px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 2px 2px 20px #00000017;
+    margin: 0;
+}
+.open-more-modal .modal-child{
+    height: 100%;
+    text-align: center;
+    padding-top: 12px;
+    background: #fafafa;
+    transition: all .2s ease;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.open-more-modal .modal-child:hover{
+    background: #efefef;
+}
+.open-more-modal #more-modal .modal-child:last-child{
+    color: #fff3f3;
+    background: #e04747;
+}
+.hidden {
+  display: none;
+}
+/* Chat search */
+.search-modal {
+  height: auto;
+  width: 500px;
+  position: fixed;
+  top: 48px;
+  right: 0;
+  backdrop-filter: blur(5px);
+  background: #7c7c7c17;
+  z-index: 2;
+  padding: 20px;
+  padding-right: 50px;
+}
+.search-modal input{
+    height: 48px;
+    width: 100%;
+    border: 1px solid #dfdfdf;
+    border-radius: 8px;
+    background: #fafafa;
+    padding: 0 12px;
+    outline: none;
+}
+
+/* User Profile Modal */
+.profile-modal-overlay {
+  height: 100%;
+  width: 100%;
+  background: #00000024;
+  backdrop-filter: blur(2px);
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hidden {
+  display: none;
+}
+.modal-box{
+    height: auto;
+    width: 600px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.modal-box .user-profile{
+    background:  linear-gradient(90deg, #37657c, #b5d0de);
+    height: 80px;
+    width: 100%;
+    margin-bottom: 32px;
+}
+.modal-box .user-profile .user-avatar{
+    position: relative;
+    top: 40px;
+    left: -8px;
+    border: 3px solid white;
+    height: 60px;
+    width: 60px;
+    font-size: 28px;
+    padding: 5px;
+}
+.modal-box .user-profile-info{
+    padding: 8px 12px;
+}
+.modal-box .user-profile .close-profile {
+    height: 32px;
+    width: 32px;
+    background: #ffffffd0;
+    position: relative;
+    top: -15px;
+    left: 560px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.modal-box .user-profile .close-profile img{
+    height: 16px;
+    width: 16px;
+    margin: 0 auto;
+    opacity: .4;
+}
+.modal-box .user-profile-info #user-profile-name{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+.modal-box .user-profile-info #user-profile-about{
+    font-size: 14px;
+    font-weight: 500;
+    color: #757575;
+    line-height: 1.5;
+}
+.modal-box .user-profile-about{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 12px 12px;
+}
+.modal-box .user-profile-about #user-profile-about-title{
+    font-size: 16px;
+    font-weight: 600;
+}
+.modal-box .user-profile-cta-buttons{
+    margin: 12px;
+    margin-bottom: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.modal-box .user-profile-cta-buttons button{
+    height: 40px;
+    width: 300px;
+    border: none;
+    border-radius: 8px;
+    background: #ffeded;
+    color: #e04747;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.modal-box .user-profile-cta-buttons button:hover{
+    background: #e6a9a9;
+    color: #ffeded;
+}
+.modal-box .user-profile-cta-buttons button:active{
+    background: #af3a3a;
+    color: #ffeded;
+}
+hr{
+    border: 1px solid #efefef;
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="../css/register.css" />
+  </head>
+  <body>
+    <main class="main-container">
+      <!-- Banner -->
+      <div class="banner-container"></div>
+      <!-- Register Container -->
+      <div class="register-container">
+        <form class="form-container" onsubmit="handleRegister(event)">
+          <!-- Header -->
+          <div class="header">
+            <h2>Create your account</h2>
+            <p>Please enter your details to register.</p>
+          </div>
+          <!-- Username -->
+          <div class="user-input">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Enter your username"
+              autocomplete="off"
+              onblur="validateUsername()"
+            />
+            <span id="username-error" class="error-message"></span>
+          </div>
+          <!-- Email -->
+          <div class="user-input">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="myname@example.com"
+              autocomplete="off"
+              onblur="validateEmail()"
+            />
+            <span id="email-error" class="error-message"></span>
+          </div>
+          <!-- Password -->
+          <div class="user-input">
+            <label for="pwd">Password</label>
+            <input
+              type="password"
+              id="pwd"
+              placeholder="Create password"
+              autocomplete="off"
+              onblur="validatePassword()"
+            />
+            <span id="password-error" class="error-message"></span>
+          </div>
+          <!-- Register Button -->
+          <div class="sumbit-button">
+            <button type="submit">Register</button>
+          </div>
+          <!-- Or continue with -->
+          <div class="or-splitter">
+            <div><p>Or Continue With</p></div>
+          </div>
+          <!-- Alternate Login -->
+          <div class="alternate-login">
+            <button type="button">Google</button>
+            <button type="button">Apple</button>
+          </div>
+          <!-- Register Account -->
+          <div class="register-account">
+            <p>
+              Already have an account?
+              <a href="../html/login.html">Log in</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script src="../javascript/register.js"></script>
+  </body>
+</html>
