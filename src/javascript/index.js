@@ -61,7 +61,7 @@ function handleFormSubmit(event){
     if(emailInput.value.trim() === email && passwordInput.value.trim() === password){
         logInError.textContent = "";
         alert("Log In Successfully");
-        window.location.replace("../html/app.html");
+        window.location.replace("/src/html/app.html");
     } else {
         logInError.textContent = "Invalid User";
     }
