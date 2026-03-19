@@ -537,6 +537,8 @@ openChat(userList[0].id);
 
 // =========== Chats ===============================
 function openChat(userId) {
+  document.getElementById('inbox-container').classList.add('slide-out');
+  
   currentChatUser = userId;
 
   // Clearing previous chat when user move/click to next chat
@@ -730,4 +732,49 @@ function closeProfileModal(){
   document.querySelector(".profile-modal-overlay").classList.add("hidden");
 }
 
-console.log(document.querySelector(".profile-modal-overlay"))
+// ======= Responsive Code =========================
+
+function goBackToInbox() {
+    document.getElementById('inbox-container').classList.remove('slide-out');
+}
+
+// We listen for ANY click happening anywhere on the page
+document.addEventListener("click", function(e) {
+  // ===== MORE MODAL =====
+  // Grab the more modal and the button that opens it
+  let moreModal = document.querySelector(".open-more-modal");
+  let moreBtn = document.querySelector(".more-element");
+
+  // Check if the more modal is currently visible (not hidden)
+  let moreModalIsOpen = !moreModal.classList.contains("hidden");
+
+  if (moreModalIsOpen) {
+    // Check if the user clicked OUTSIDE the modal AND outside the open button
+    let clickedOutsideModal = !moreModal.contains(e.target);
+    let clickedOutsideBtn = !moreBtn.contains(e.target);
+
+    if (clickedOutsideModal && clickedOutsideBtn) {
+      // User clicked outside — so close the modal
+      moreModal.classList.add("hidden");
+    }
+  }
+
+  // ===== SEARCH MODAL =====
+  // Grab the search modal and the button that opens it
+  let searchModal = document.querySelector(".search-modal");
+  let searchBtn = document.querySelector(".more-element img:first-child");
+
+  // Check if the search modal is currently visible (not hidden)
+  let searchModalIsOpen = !searchModal.classList.contains("hidden");
+
+  if (searchModalIsOpen) {
+    // Check if the user clicked OUTSIDE the modal AND outside the open button
+    let clickedOutsideSearchModal = !searchModal.contains(e.target);
+    let clickedOutsideSearchBtn = !searchBtn.contains(e.target);
+
+    if (clickedOutsideSearchModal && clickedOutsideSearchBtn) {
+      // User clicked outside — so close the modal
+      searchModal.classList.add("hidden");
+    }
+  }
+});

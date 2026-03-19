@@ -128,7 +128,7 @@ body{
     width: 42px;
     background: #c5e0ee;
     color: #507d95;
-    border: 2px solid #b5d0de;
+    /* border: 2px solid #b5d0de; */
     border-radius: 100%;
     text-align: center;
     line-height: 42px; 
@@ -395,4 +395,108 @@ body{
 }
 hr{
     border: 1px solid #efefef;
+}
+
+/* ========================================== */
+/*        Responsive for Mobile Screen        */
+/* ========================================== */
+
+.back-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    color: #444;
+    padding: 0 4px;
+    line-height: 1;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 900px) {
+    .inbox-container {
+        width: 260px;
+        min-width: 260px;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-container {
+        position: relative;
+        overflow: hidden;
+    }
+    .inbox-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        min-width: 100%;
+        z-index: 10;
+        transform: translateX(0);
+        transition: transform 0.25s ease;
+    }
+    .inbox-container.slide-out {
+        transform: translateX(-100%);
+    }
+    .back-btn {
+        display: flex;
+        align-items: center;
+    }
+    .user-input button {
+        width: 80px;
+        font-size: 13px;
+    }
+    .modal-box {
+        width: 92vw;
+    }
+    .modal-box .user-profile .close-profile {
+        left: calc(92vw - 50px);
+    }
+    .open-more-modal {
+        right: 8px;
+        top: 56px;
+    }
+    .search-modal {
+        width: 100%;
+        padding: 12px;
+    }
+    .chat-area{
+        height: 100%;
+        gap: auto;
+    }
+    .text-box{
+        height: auto;
+        gap: 6px;
+        align-items: flex-end;
+    }
+    .user-avatar{
+        height: 38px;
+        min-width: 38px;
+    }
+    .bot .user-avatar{
+        background: none;
+    }
+    .bot .user-avatar img{
+        background: none;
+        height: 38px;
+        min-width: 38px;
+    }
+    #text-message{
+        font-size: 12px;
+    }
+    #user-messaged-date-time{
+        font-size: 10px;
+    }
+    .chat-navbar #nav-user-avatar img{
+        min-height: 40px;
+        min-width: 40px;
+    }
+    .user-info{
+        font-size: 14px;
+        font-weight: 600;
+    }
 }

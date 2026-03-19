@@ -10,7 +10,7 @@
     <header></header>
     <main class="main-container">
       <!-- Inbox User List Container -->
-      <div class="inbox-container">
+      <div class="inbox-container" id="inbox-container">
         <!-- Inbox User List Header -->
         <div class="inbox-header">
           <h3>Chats</h3>
@@ -25,13 +25,15 @@
           </div>
         </div>
         <!-- Inbox Users List -->
-        <div class="inbox-list"></div>
+        <div class="inbox-list">
+        </div>
       </div>
       <!-- Chat Box Container -->
       <div class="chat-box-container">
         <!-- Chat Navigation Bar -->
         <nav class="chat-navbar">
           <div class="user-profile">
+            <button class="back-btn" onclick="goBackToInbox()">&#8592;</button>
             <div id="nav-user-avatar"></div>
             <div class="user-info">
               <p id="nav-user-name"></p>
@@ -79,7 +81,7 @@
       </div>
     </main>
     <!-- Dialog Box Pop Modal -->
-    <div class="open-more-modal hidden" onmouseleave="closeMoreModal()">
+    <div class="open-more-modal hidden">
       <dialog id="more-modal">
         <div id="profile" class="modal-child" onclick="viewProfile()">
           <p>Profile</p>
@@ -96,7 +98,7 @@
       </dialog>
     </div>
     <!-- Search Box Pop Modal -->
-    <div class="search-modal hidden" onmouseleave="closeSearchModal()">
+    <div class="search-modal hidden">
       <input
         type="search"
         id="chat-search"
